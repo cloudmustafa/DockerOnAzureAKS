@@ -1,0 +1,3 @@
+C:\Projects\aks\aks\obj\Debug\netcoreapp2.1\aks.csproj.CoreCompileInputs.cache
+C:\Projects\aks\aks\obj\Debug\netcoreapp2.1\aks.AssemblyInfoInputs.cache
+C:\Projects\aks\aks\obj\Debug\netcoreapp2.1\aks.AssemblyInfo.cs

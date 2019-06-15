@@ -1,0 +1,43 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: aks
+spec:
+  selector:
+    matchLabels:
+      app: aks
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: aks
+    spec:
+      containers:
+      - name: aks
+        image: acraksmustafa.azurecr.io/aks:v1.0 # #{ImageTag}# #v10 #v2.#{Build.BuildId}#
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: "1"
+            memory: "200Mi"
+          requests:
+            cpu: "0.1"
+            memory: "100Mi"
+        
+#              configMapKeyRef:
+#                name: mssql-connection-configmap
+#                key: db-connection-string
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: aks
+spec:
+  selector:
+    app: aks
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
