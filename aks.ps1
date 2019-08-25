@@ -12,9 +12,9 @@ Write-Output "------------------------------------------------------------------
 echo "`n"
 
 echo "Store Azure Registry ID to the new variable AzureRegistryID"
-echo "Run command: Set-Variable -Name AzureRegistryID -Value (az acr show --resource-group RGaksmustafa --name ACRaksmustafa --query ""id"")"
+echo "Run command: Set-Variable -Name AzureRegistryID -Value (az acr show --resource-group myrg --name ACRDemoSLB --query ""id"")"
 echo "`n"
-Set-Variable -Name AzureRegistryID -Value $(az acr show --resource-group RGaksmustafa --name ACRaksmustafa --query "id")
+Set-Variable -Name AzureRegistryID -Value $(az acr show --resource-group myrg --name ACRDemoSLB --query "id")
 echo "OUTPUT"
 $AzureRegistryID
 Write-Output "--------------------------------------------------------------------"
@@ -37,18 +37,18 @@ Write-Output "------------------------------------------------------------------
 echo "`n"
 
 echo "Create AKS Cluster with one node"
-echo "Run command: az aks create --resource-group RGaksmustafa --name CLUSTERaksmustafa --node-count 1 --service-principal ServicePrincipalID --client-secret ServicePrincipalPassword --generate-ssh-keys"
+echo "Run command: az aks create --resource-group myrg --name mynewcluster --node-count 1 --service-principal ServicePrincipalID --client-secret ServicePrincipalPassword --generate-ssh-keys"
 echo "`n"
 echo "OUTPUT"
-az aks create --resource-group RGaksmustafa --name CLUSTERaksmustafa --node-count 2 --service-principal $ServicePrincipalID --client-secret $ServicePrincipalPassword --generate-ssh-keys
+az aks create --resource-group myrg --name mynewcluster --node-count 2 --service-principal $ServicePrincipalID --client-secret $ServicePrincipalPassword --generate-ssh-keys
 Write-Output "--------------------------------------------------------------------"
 echo "`n"
 
 echo "Merge credentials of AKS cluster to your local .kube config file"
-echo "Run command: az aks get-credentials --resource-group RGaksmustafa --name CLUSTERaksmustafa --overwrite-existing"
+echo "Run command: az aks get-credentials --resource-group myrg --name mynewcluster --overwrite-existing"
 echo "`n"
 echo "OUTPUT"
-az aks get-credentials --resource-group RGaksmustafa --name CLUSTERaksmustafa --overwrite-existing
+az aks get-credentials --resource-group myrg --name mynewcluster --overwrite-existing
 Write-Output "--------------------------------------------------------------------"
 echo "`n"
 
@@ -61,10 +61,10 @@ Write-Output "------------------------------------------------------------------
 echo "`n"
 
 echo "Create an ACR image pull secret key which will authorize AKS to pull images from ACR using the Service Principal created earlier"
-echo "Run command: kubectl create secret docker-registry acr-auth --docker-server ACRaksmustafa.azurecr.io --docker-username ServicePrincipalID --docker-password ServicePrincipalPassword --docker-email joydeep.ghosh@us.sogeti.com"
+echo "Run command: kubectl create secret docker-registry acr-auth --docker-server ACRDemoSLB.azurecr.io --docker-username ServicePrincipalID --docker-password ServicePrincipalPassword --docker-email joydeep.ghosh@us.sogeti.com"
 echo "`n"
 echo "OUTPUT"
-kubectl create secret docker-registry acr-auth --docker-server ACRaksmustafa.azurecr.io --docker-username $ServicePrincipalID --docker-password $ServicePrincipalPassword --docker-email joydeep.ghosh@us.sogeti.com
+kubectl create secret docker-registry acr-auth --docker-server ACRDemoSLB.azurecr.io --docker-username $ServicePrincipalID --docker-password $ServicePrincipalPassword --docker-email akhterul.mustafa@us.sogeti.com
 Write-Output "--------------------------------------------------------------------"
 echo "`n"
 
@@ -102,9 +102,9 @@ echo "`n"
 
 
 echo "Browse the dashboard of AKS cluster"
-echo "Run command: az aks browse --resource-group RGaksmustafa --name CLUSTERaksmustafa"
+echo "Run command: az aks browse --resource-group myrg --name mynewcluster"
 echo "`n"
 echo "OUTPUT"
-az aks browse --resource-group RGaksmustafa --name CLUSTERaksmustafa
+az aks browse --resource-group myrg --name mynewcluster
 Write-Output "--------------------------------------------------------------------"
 echo "`n"

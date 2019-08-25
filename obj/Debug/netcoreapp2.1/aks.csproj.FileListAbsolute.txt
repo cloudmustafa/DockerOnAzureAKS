@@ -1,3 +1,15 @@
 C:\Projects\aks\aks\obj\Debug\netcoreapp2.1\aks.csproj.CoreCompileInputs.cache
 C:\Projects\aks\aks\obj\Debug\netcoreapp2.1\aks.AssemblyInfoInputs.cache
 C:\Projects\aks\aks\obj\Debug\netcoreapp2.1\aks.AssemblyInfo.cs
+C:\Projects\aks\aks\bin\Debug\netcoreapp2.1\aks.deps.json
+C:\Projects\aks\aks\bin\Debug\netcoreapp2.1\aks.runtimeconfig.json
+C:\Projects\aks\aks\bin\Debug\netcoreapp2.1\aks.runtimeconfig.dev.json
+C:\Projects\aks\aks\bin\Debug\netcoreapp2.1\aks.dll
+C:\Projects\aks\aks\bin\Debug\netcoreapp2.1\aks.pdb
+C:\Projects\aks\aks\obj\Debug\netcoreapp2.1\aks.csprojAssemblyReference.cache
+C:\Projects\aks\aks\obj\Debug\netcoreapp2.1\aks.RazorAssemblyInfo.cache
+C:\Projects\aks\aks\obj\Debug\netcoreapp2.1\aks.RazorAssemblyInfo.cs
+C:\Projects\aks\aks\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Projects\aks\aks\obj\Debug\netcoreapp2.1\aks.RazorTargetAssemblyInfo.cache
+C:\Projects\aks\aks\obj\Debug\netcoreapp2.1\aks.dll
+C:\Projects\aks\aks\obj\Debug\netcoreapp2.1\aks.pdb
