@@ -1,4 +1,4 @@
-# Running Docker Container On Azure AKS
+# Running Docker Container On Azure AKS with VNET
 .NET core docker container running on Azure Kubernetes service demo
 
 Steps to push the docker image to AKS
