@@ -24,17 +24,17 @@ echo "`n"
 
 
 echo "Create Container Registry under the new resource group created"
-echo "Run command: az acr create --resource-group myrg --name ACRDemoSLB --sku Basic"
+echo "Run command: az acr create --resource-group myrg --name acrbexarcountydemo --sku Basic"
 echo "`n"
 echo "OUTPUT"
-az acr create --resource-group myrg --name ACRDemoSLB --sku Basic
+az acr create --resource-group myrg --name acrbexarcountydemo --sku Basic
 Write-Output "--------------------------------------------------------------------"
 echo "`n"
 
 echo "Login to Container Registry created"
-echo "Run command: az acr login --name ACRDemoSLB"
+echo "Run command: az acr login --name acrbexarcountydemo"
 echo "`n"
 echo "OUTPUT"
-az acr login --name ACRDemoSLB
+az acr login --name acrbexarcountydemo
 Write-Output "--------------------------------------------------------------------"
 echo "`n"

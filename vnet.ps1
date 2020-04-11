@@ -1,0 +1,1 @@
+az network vnet create --resource-group myrg --name aks-vnet --address-prefixes 10.0.0.0/8  --subnet-name aks-subnet --subnet-prefix 10.240.0.0/16

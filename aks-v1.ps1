@@ -19,8 +19,14 @@ echo "OUTPUT"
 $AzureRegistryID
 Write-Output "--------------------------------------------------------------------"
 echo "`n"
-
-
+echo "Getting VNET ID"
+Set-Variable -Name VNET_ID -Value $(az network vnet show --resource-group myrg --name aks-vnet --query id --output tsv)
+echo "OUTPUT VNET ID"
+$VNET_ID
+echo "Getting SUBNET ID"
+Set-Variable -Name SUBNET_ID -Value $(az network vnet subnet show --resource-group myrg --vnet-name aks-vnet --name aks-subnet --query id)
+echo "OUTPUT SUBNET ID"
+$SUBNET_ID	
 echo "Create the Service Principal with access rights to registry. Store the Service Principal password to the variable ServicePrincipalID"
 echo "Run command: Set-Variable -Name ServicePrincipalPassword -Value (az ad sp create-for-rbac --name http://aksmustafa --scope AzureRegistryID --role acrpull --query password)"
 echo "`n"
@@ -37,10 +43,10 @@ Write-Output "------------------------------------------------------------------
 echo "`n"
 
 echo "Create AKS Cluster with one node"
-echo "Run command: az aks create --resource-group myrg --name mynewcluster --node-count 1 --service-principal ServicePrincipalID --client-secret ServicePrincipalPassword --generate-ssh-keys"
+echo "Run command: az aks create --resource-group myrg --name mynewcluster --vnet-subnet-id $SUBNET_ID --node-count 1 --service-principal ServicePrincipalID --client-secret ServicePrincipalPassword --generate-ssh-keys"
 echo "`n"
 echo "OUTPUT"
-az aks create --resource-group myrg --name mynewcluster --node-count 2 --service-principal $ServicePrincipalID --client-secret $ServicePrincipalPassword --generate-ssh-keys
+az aks create --resource-group myrg --name mynewcluster --network-plugin azure --vnet-subnet-id $SUBNET_ID --node-count 2 --service-principal $ServicePrincipalID --client-secret $ServicePrincipalPassword --generate-ssh-keys 
 Write-Output "--------------------------------------------------------------------"
 echo "`n"
 
