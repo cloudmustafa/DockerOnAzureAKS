@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: aks
-  replicas: 1 # tells deployment to run 2 pods matching the template
+  replicas: 2 # tells deployment to run 2 pods matching the template
   template:
     metadata:
       labels:
@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
       - name: aks
-        image: acrbexarcountydemo.azurecr.io/react-api:v1 # #{ImageTag}# #v10 #v2.#{Build.BuildId}#
+        image: acrbexarcountydemo.azurecr.io/calculator:v1 # #{ImageTag}# #v10 #v2.#{Build.BuildId}#
         ports:
-        - containerPort: 3500
+        - containerPort: 4500
         resources:
           limits:
             cpu: "1"
@@ -37,6 +37,6 @@ spec:
     app: aks
   ports:
   - protocol: TCP
-    port: 3500
-    targetPort: 3500
+    port: 4500
+    targetPort: 4500
   type: LoadBalancer

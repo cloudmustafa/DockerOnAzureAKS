@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Projects\\aks\\aks\\aks.csproj",
+  "FilePath": "c:\\Projects\\AKS\\DockerOnAzureAKS\\aks.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -2872,7 +2872,7 @@
         }
       }
     ],
-    "CSharpLanguageVersion": 800
+    "CSharpLanguageVersion": 703
   },
   "RootNamespace": "aks",
   "Documents": [],

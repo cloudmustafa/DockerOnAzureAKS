@@ -1,0 +1,5 @@
+ kubectl get pods --all-namespaces -o
+
+  kubectl describe pod <POD NAME>> --namespace bcxnamespace
+
+kubectl get pods bcxnamespace //Namespace name
