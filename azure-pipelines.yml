@@ -22,13 +22,5 @@ steps:
     repository: 'myrepo'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-- task: CopyFiles@2
-  inputs:
-    Contents: '**'
-    TargetFolder: 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+
 
