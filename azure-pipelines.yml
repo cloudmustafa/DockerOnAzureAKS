@@ -22,3 +22,13 @@ steps:
     repository: 'myrepo'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceEndpoint: 'mycluster'
+    namespace: 'default'
+    command: 'apply'
+    arguments: '-f deployment.yaml'
+    secretType: 'dockerRegistry'
+    containerRegistryType: 'Azure Container Registry'
