@@ -18,10 +18,19 @@ steps:
  
 - task: Docker@2
   inputs:
-    containerRegistry: 'ContainerRegistry'
-    repository: 'myrepo'
+    containerRegistry: 'ACRConnection'
+    repository: 'ContainerRepo'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+- task: CopyFiles@2
+  inputs:
+    Contents: 'deployment.yaml'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 
 
 
