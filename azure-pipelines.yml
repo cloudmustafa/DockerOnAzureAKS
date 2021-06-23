@@ -24,8 +24,8 @@ steps:
     Dockerfile: '**/Dockerfile'
 - task: CopyFiles@2
   inputs:
-    Contents: 'deployment.yaml'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    Contents: '**'
+    TargetFolder: 
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
