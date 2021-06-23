@@ -2,7 +2,7 @@ apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
   name: aks
-  namespace: bcxnamespace
+  namespace: default
 spec:
   selector:
     matchLabels:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: aks
-        image: acrbexarcountydemo.azurecr.io/calculator:v1 # #{ImageTag}# #v10 #v2.#{Build.BuildId}#
+        image: amk8acr.azurecr.io/containerrepo:34 # #{ImageTag}# #v10 #v2.#{Build.BuildId}#
         ports:
         - containerPort: 4500
         resources:
