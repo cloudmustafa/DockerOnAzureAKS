@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: aks
-        image: amk8acr.azurecr.io/containerrepo:34 # #{ImageTag}# #v10 #v2.#{Build.BuildId}#
+        image: amk8acr.azurecr.io/containerrepo:#{Build.BuildId}#
         ports:
         - containerPort: 4500
         resources:
